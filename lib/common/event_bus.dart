@@ -1,7 +1,7 @@
 typedef void EventCallback(arg);
 
 class EventBus {
-  //构造函数私有
+  //构造函数私有，_表示私有，ClassName.name表示命名构造函数
   EventBus._internal();
 
   //单例

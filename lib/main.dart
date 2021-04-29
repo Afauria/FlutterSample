@@ -6,6 +6,7 @@ import 'package:flutter_sample/pages/sample4_assets.dart';
 import 'package:flutter_sample/pages/sample5_get_counter.dart';
 import 'package:flutter_sample/pages/sample6_eventbus.dart';
 import 'package:flutter_sample/pages/sample7_async_task.dart';
+import 'package:flutter_sample/pages/sample8_inherited_widget.dart';
 
 void main() {
   runApp(MyApp());
@@ -46,6 +47,7 @@ class MyApp extends StatelessWidget {
         "sample5_get_counter": (context) => GetXCounter(),
         "sample6_eventbus": (context) => EventBusPage(),
         "sample7_async_task": (context) => AsyncTaskPage(),
+        "sample8_inherited_widget": (context) => InheritedWidgetTest(),
         "router_by_named": (context) => RouterByNamed(),
         //命名路由传递参数，通过arguments参数
         "router_with_param_by_named": (context) => RouterWithParamByNamed(),
@@ -111,6 +113,7 @@ class _MyHomePageState extends State<MyHomePage> {
       "示例5：GetX示例": "sample5_get_counter",
       "示例6：事件总线示例": "sample6_eventbus",
       "示例7：异步任务和异步流": "sample7_async_task",
+      "示例8：数据共享（InheritedWidget）": "sample8_inherited_widget",
     };
     final sampleNameList = sampleMap.keys.toList();
     final sampleRouteList = sampleMap.values.toList();
