@@ -102,6 +102,18 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
+    final divider = Divider(color: Colors.blue, height: 0,);
+    final sampleMap = {
+      "示例1：计数器": "sample1_counter",
+      "示例2：路由管理": "sample2_router",
+      "示例3：随机单词（包管理）": "sample3_random_words",
+      "示例4：资源管理": "sample4_assets",
+      "示例5：GetX示例": "sample5_get_counter",
+      "示例6：事件总线示例": "sample6_eventbus",
+      "示例7：异步任务和异步流": "sample7_async_task",
+    };
+    final sampleNameList = sampleMap.keys.toList();
+    final sampleRouteList = sampleMap.values.toList();
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
@@ -118,52 +130,28 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
-        child: Column(
-            // Column is also a layout widget. It takes a list of children and
-            // arranges them vertically. By default, it sizes itself to fit its
-            // children horizontally, and tries to be as tall as its parent.
-            //
-            // Invoke "debug painting" (press "p" in the console, choose the
-            // "Toggle Debug Paint" action from the Flutter Inspector in Android
-            // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-            // to see the wireframe for each widget.
-            //
-            // Column has various properties to control how it sizes itself and
-            // how it positions its children. Here we use mainAxisAlignment to
-            // center the children vertically; the main axis here is the vertical
-            // axis because Columns are vertical (the cross axis would be
-            // horizontal).
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ElevatedButton(
-                  onPressed: () =>
-                      Navigator.pushNamed(context, "sample1_counter"),
-                  child: Text("示例1：计数器")),
-              ElevatedButton(
-                  onPressed: () =>
-                      Navigator.pushNamed(context, "sample2_router"),
-                  child: Text("示例2：路由管理")),
-              ElevatedButton(
-                  onPressed: () =>
-                      Navigator.pushNamed(context, "sample3_random_words"),
-                  child: Text("示例3：随机单词（包管理）")),
-              ElevatedButton(
-                  onPressed: () =>
-                      Navigator.pushNamed(context, "sample4_assets"),
-                  child: Text("示例4：资源管理")),
-              ElevatedButton(
-                  onPressed: () =>
-                      Navigator.pushNamed(context, "sample5_get_counter"),
-                  child: Text("示例5：GetX示例")),
-              ElevatedButton(
-                  onPressed: () =>
-                      Navigator.pushNamed(context, "sample6_eventbus"),
-                  child: Text("示例6：事件总线示例")),
-              ElevatedButton(
-                  onPressed: () =>
-                      Navigator.pushNamed(context, "sample7_async_task"),
-                  child: Text("示例7：异步任务和异步流")),
-            ]),
+        child: ListView.separated(
+          /// ListView.builder和ListView.separated生成列表布局，
+          /// ListView.separated可以自定义分割线
+          shrinkWrap: true,
+          itemCount: sampleMap.length,
+          itemBuilder: (BuildContext context, int index) {
+            ///GestureDetector没有点击特效
+            ///使用InkWell可以添加点击特效
+            return InkWell(
+              splashColor: Colors.blue,
+              onTap: () => Navigator.pushNamed(context, sampleRouteList[index]),
+              child: Container(
+                height: 50,
+                alignment: Alignment.center,
+                child: Text("${sampleNameList[index]}"),
+              ),
+            );
+          },
+          separatorBuilder: (BuildContext context, int index) {
+            return divider;
+          },
+        ),
       ),
     );
   }
