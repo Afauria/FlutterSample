@@ -5,6 +5,7 @@ import 'package:flutter_sample/pages/sample1_counter.dart';
 import 'package:flutter_sample/pages/sample4_assets.dart';
 import 'package:flutter_sample/pages/sample5_get_counter.dart';
 import 'package:flutter_sample/pages/sample6_eventbus.dart';
+import 'package:flutter_sample/pages/sample7_async_task.dart';
 
 void main() {
   runApp(MyApp());
@@ -44,12 +45,13 @@ class MyApp extends StatelessWidget {
         "sample4_assets": (context) => AssetsPage(),
         "sample5_get_counter": (context) => GetXCounter(),
         "sample6_eventbus": (context) => EventBusPage(),
+        "sample7_async_task": (context) => AsyncTaskPage(),
         "router_by_named": (context) => RouterByNamed(),
         //命名路由传递参数，通过arguments参数
         "router_with_param_by_named": (context) => RouterWithParamByNamed(),
         //如果路由页面构造函数接收参数，可以在构造的时候就获取参数
-        "router_with_param": (context) =>
-            RouterWithParam(ModalRoute.of(context)?.settings.arguments.toString()),
+        "router_with_param": (context) => RouterWithParam(
+            ModalRoute.of(context)?.settings.arguments.toString()),
         "router_with_result": (context) => RouterWithResult(),
       },
       onUnknownRoute: (RouteSettings settings) {
@@ -157,6 +159,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   onPressed: () =>
                       Navigator.pushNamed(context, "sample6_eventbus"),
                   child: Text("示例6：事件总线示例")),
+              ElevatedButton(
+                  onPressed: () =>
+                      Navigator.pushNamed(context, "sample7_async_task"),
+                  child: Text("示例7：异步任务和异步流")),
             ]),
       ),
     );
