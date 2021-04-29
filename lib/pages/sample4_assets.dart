@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class AssetsPage extends StatelessWidget {
-  Future<String> loadAssets({BuildContext context}) async {
+  Future<String> loadAssets({BuildContext? context}) async {
     if (context == null) {
       print("loadAssets with rootBundle");
       return await rootBundle.loadString("assets/config.json");

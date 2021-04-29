@@ -92,13 +92,13 @@ class RouterByNamed extends StatelessWidget {
 class RouterWithParam extends StatelessWidget {
   RouterWithParam(this.param);
 
-  final String param;
+  final String? param;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(title: Text("路由传递参数")),
-        body: Center(child: Text(param)));
+        body: Center(child: Text(param.toString())));
   }
 }
 
@@ -106,10 +106,10 @@ class RouterWithParam extends StatelessWidget {
 class RouterWithParamByNamed extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var param = ModalRoute.of(context).settings.arguments;
+    final param = ModalRoute.of(context)?.settings.arguments;
     return Scaffold(
         appBar: AppBar(title: Text("命名路由传递参数")),
-        body: Center(child: Text(param)));
+        body: Center(child: Text(param.toString())));
   }
 }
 
