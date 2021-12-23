@@ -1,16 +1,12 @@
-# flutter_sample
+# Flutter基础、语法学习
 
-A new Flutter application.
+样例代码
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. 计数器
+2. 路由跳转：多种方式
+3. 随机单词：引入三方库
+4. 资源加载
+5. GetX实现计数器
+6. 自定义EventBus实现
+7. 异步任务：Future、Stream
+8. 继承组件：InheritedWidget
